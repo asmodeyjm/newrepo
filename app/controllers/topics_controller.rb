@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
      authorize @topic
   end
     def create
-     @topic = Topic.new(params.require(:topic).permit(:name, :description, :public))
+     @topic = Topic.new(post_params)
      authorize @topic
      if @topic.save
        redirect_to @topic, notice: "Topic was saved successfully."
@@ -40,4 +40,9 @@ class TopicsController < ApplicationController
        render :edit
      end
    end
+   private
+
+def post_params
+  params.require(:post).permit(:title, :body)
+end
 end
