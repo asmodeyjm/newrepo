@@ -15,6 +15,7 @@ resources :topics do
    resources :posts, only: [:index] do 
     resources :comments, only: [:create]
   end
+ end
   
 
   
