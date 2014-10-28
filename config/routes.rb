@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 resources :topics do
      
    resources :posts, only: [:index] do 
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
  end
   
